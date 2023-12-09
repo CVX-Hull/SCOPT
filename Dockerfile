@@ -6,7 +6,7 @@ WORKDIR $APP_HOME
 
 COPY app.py optimize.py env.yml shops.json ./
 COPY static ./static
-RUN conda create -n SCMIP -f env.yml
+RUN conda env create -n SCMIP -f env.yml
 RUN conda init bash
 SHELL ["conda", "run", "-n", "SCMIP", "/bin/bash", "-c"]
 RUN python -c "import flask"
